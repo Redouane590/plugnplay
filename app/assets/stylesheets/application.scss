@@ -9,4 +9,11 @@
 
 // Your CSS partials
 @import "components/index";
+@import "components/product-card";
 @import "pages/index";
+
+
+body {
+  background-color: #ffe5d9;
+  font-family: 'Raleway', sans-serif;
+}
