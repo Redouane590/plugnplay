@@ -11,7 +11,6 @@
 
   <%= f.input :price, :label => "Prix de la location par jour" %>
 
-  <%= f.input :category, :label => "Categorie" %>
   <%= f.input :category, collection: Boat::CATEGORY, :label => "Categorie" %>
 
   <%= f.input :address, :label => "Localisation du bateau" %>
