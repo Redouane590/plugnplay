@@ -1,0 +1,23 @@
+
+<div class="d-flex">
+  <h1> <%= @boat.title %> </h1>
+  <p><%= @boat.description %></p>
+</div>
+
+
+<p><%= @boat.photo_url %></p>
+<p><%= @boat.address %></p>
+<p><% @boat.category %></p>
+<p><% @boat.price %></p>
+<div class="container">
+<div class="card" style="width: 40vw);">
+  <img class="card-img-top" src="https://static1.clickandboat.com/v1/p/uN8ozp1dkHiC0JQUQIb6VxcocEb3ki95.big.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= @boat.title %></h5>
+    <p class="card-text"><%= @boat.description %></p>
+    <p class="card-text"><%= @boat.address %></p>
+    <p class="card-text"><%= @boat.price %></p>
+    <a href="#" class="btn btn-primary">Louer</a>
+  </div>
+</div>
+</div>
