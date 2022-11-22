@@ -19,7 +19,11 @@ class BoatsController < ApplicationController
 
   def update
     @boat = Boat.find(params[:id])
-    @boat.update(boat_params)
+    if @boat.update(boat_params)
+      redirect_to boat_path(@boat)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -31,6 +35,6 @@ class BoatsController < ApplicationController
   private
 
   def boat_params
-    params.require(:boat).permit(:name)
+    params.require(:boat).permit(:title, :description, :photo_url, :category, :price, :address)
   end
 end
