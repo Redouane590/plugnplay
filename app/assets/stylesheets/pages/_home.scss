@@ -3,6 +3,7 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+  box-shadow: rgba(0, 109, 119, 0.6) 0px 1px 8px 0px;
 }
 
 .banner h1 {
@@ -11,6 +12,7 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
+  margin-bottom: 28px;
 }
 
 .banner p {
@@ -19,3 +21,17 @@
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
+
+.btn-banner {
+    color: #ffffff;
+    background-color: #006D77;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: lighter;
+    transition: 0.3s;
+  }
+
+  .btn-banner:hover {
+    background-color: rgb(0, 60, 65);
+    color: #ffffff;
+  }
