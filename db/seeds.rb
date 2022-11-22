@@ -41,12 +41,12 @@ boat5 = Boat.create!(title: "Gulet", description:"À bord, vous avez la chance d
 
 boat6 = Boat.create!(title: "Robert Clark", description:"Bienvenue à bord de notre magnifique yacht à voile ketch de 72 pieds. Cet incroyable navire a passé 5 ans en restauration, pour pouvoir accueillir et livrer un temps incroyable à bord.", photo_url:"https://www.clickandboat.com/location-bateau/sydney/go%C3%A9lette/robert-clark-72-bev25z", category:"goélette", user_id: user3.id, price: 600, address:"Sydney Harbour, Sydney")
 
-boat7 = Boat.create!(title: "Turkish Gulet", description:"La Barbarossa est une goélette turque bien entretenue de 23 m construite à Istanbul.", photo_url:"https://www.clickandboat.com/location-bateau/il-mellie%C4%A7a/go%C3%A9lette/turkish-gulet-motor-sailing-yacht-pb741", category:"goélette", user_id: user3.id, price: 200, adress:"Bali")
+boat7 = Boat.create!(title: "Turkish Gulet", description:"La Barbarossa est une goélette turque bien entretenue de 23 m construite à Istanbul.", photo_url:"https://www.clickandboat.com/location-bateau/il-mellie%C4%A7a/go%C3%A9lette/turkish-gulet-motor-sailing-yacht-pb741", category:"goélette", user_id: user3.id, price: 200, address:"Bali")
 
 boat8 = Boat.create!(title: "Jeanneau", description:"L'ambiance est chaleureuse et raffinée, douce et accueillante. À l'intérieur, ils présentent des lignes épurées et un aménagement ouvert spacieux.",
         photo_url:"https://u2n3p7k8.stackpathcdn.com/13576-75900-thickbox/we-vibe-chorus.jpg", category:"goélette", user_id: user3.id, price: 600 , address:"Tropea, Italie")
 
-boat9 = Boat.create!(title: "Sun odyssey", description:"Il reflète l'harmonie à bord, et ce bien-être découle d'une ergonomie astucieuse, bénéficie d'un aménagement entièrement nouveau et innovant pour une plus grande aisance de déplacement sur le bateau.", photo_url:"https://www.clickandboat.com/location-bateau/rome/voilier/jeanneau-sun-odyssey-440-w74b5d", category:"voilier", user_id: user3.id, price: 700 address:"Marina di Nettuno, Rome")
+boat9 = Boat.create!(title: "Sun odyssey", description:"Il reflète l'harmonie à bord, et ce bien-être découle d'une ergonomie astucieuse, bénéficie d'un aménagement entièrement nouveau et innovant pour une plus grande aisance de déplacement sur le bateau.", photo_url:"https://www.clickandboat.com/location-bateau/rome/voilier/jeanneau-sun-odyssey-440-w74b5d", category:"voilier", user_id: user3.id, price: 700, address:"Marina di Nettuno, Rome")
 
 boat10= Boat.create!(title: "Fontaine Pajot", description:"8 personnes, 4 cabines, 8 couchages, 4 salles de bain", photo_url:"https://www.clickandboat.com/location-bateau/croatie/catamaran/fountaine-pajot-astrea-42-bk5bqew", category:"catamaran", user_id: user3.id, price: 200, address:"Croatie, Croatie")
 

@@ -28,6 +28,10 @@ class BoatsController < ApplicationController
     redirect_to boats_path(@boat)
   end
 
+  def show
+    @boat = Boat.find(params[:id])
+  end
+
   private
 
   def boat_params
