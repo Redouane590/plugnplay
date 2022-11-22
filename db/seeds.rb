@@ -25,18 +25,18 @@ user3 = User.create!(email: "user3@gmail.com", password: "azerty2", nickname: "u
 
 # 2. CREER DES boatS (3 ou 4 boats par user)
 puts "seeding boats"
-boat1 = Boat.create!(title: "Vibromasseur ROMP Beat", description:"4 Modes de Vibration et 6 Vitesses.
-      Vibromasseur Bullet. Ultra-Silencieux.", photo_url:"https://u2n3p7k8.stackpathcdn.com/13734-126879-thickbox/romp-beat.jpg", category:"femme", user_id: user1.id, price: 19.99)
+boat1 = Boat.create!(title: "Beneteau", description:"Un beau et très rare bateau pour une croisière en mer Thyrréenne ou dans les îles Eoliennes ! Profitez du paysage paradisiaque sur notre bateau !
+        Avec ce 5 cabines vous pourrez parfaitement naviguer à 10 personnes, n'hésitez pas si vous avez besoin d'informations complémentaires.", photo_url:"https://www.clickandboat.com/location-bateau/tropea/voilier/beneteau-ms-20-xp9y7", category:"voilier", user_id: user1.id, price: 300 , address:"Tropea")
 
-boat2 = Boat.create!(title: "Boules de Geisha Luna Beads Noir", description:"Idéal pour les Exercices de Kegel!
-       Boules Amovibles.ABS et Silicone Médical.",
-      photo_url:"https://u2n3p7k8.stackpathcdn.com/1000-4389-thickbox/lelo-luna-beads-noir.jpg", category:"femme", user_id: user2.id, price: 30)
+boat2 = Boat.create!(title: "Bavaria", description:"Si vous êtes un groupe de jusqu'à 9 personnes, Bavaria 44 est un voilier parfait pour votre aventure de navigation geek.
+      Vous pouvez profiter d'une délicieuse salade grecque ou bronzer à bord de ce bateau incroyable.",
+      photo_url:"https://www.clickandboat.com/location-bateau/alimos/voilier/bavaria-44-xwvjw", category:"voilier", user_id: user2.id, price: 400 , adress: "Alimos, Grèce")
 
-boat3 = Boat.create!(title: "Vibromasseur Tiger", description:"6 Modes de Vibration & 6 Vitesses.
-      Moteur Puissant & Silencieux.Stimulation Point G & Point P.", photo_url:"https://u2n3p7k8.stackpathcdn.com/3606-71933-thickbox/fun-factory-tiger.jpg", category:"femme", user_id: user3.id, price: 30)
+boat3 = Boat.create!(title: "Catana", description:"Belle, nouvelle Bali 4.3 vous attend à Split! Ce catamaran étonnant comporte 6 cabines au total (4 + 2), avec 12 couchettes (8 + 2 + 2).
+       De plus, il y a 4 toilettes et une cuisine moderne, entièrement équipée et moderne avec cuisinière à gaz, four, réfrigérateur, congélateur et couverts.", photo_url:"https://www.clickandboat.com/location-bateau/biograd-na-moru/catamaran/bali-catana-bali-4-3-gg9pg", category:"catamaran", user_id: user3.id, price:400 , adress:"Marina Kornati, Biograd na Moru")
 
-boat4 = Boat.create!(title: "Masturbateur Connecté Satisfyer Men Vibration +", description:"Variété Infinie de Programmes !
-       Sensations Uniques!Contrôlable à Distance.", photo_url:"https://u2n3p7k8.stackpathcdn.com/12038-54449-thickbox/fleshlight-girls-janice-griffith-eden.jpg", category:"homme", user_id: user3.id, price: 100)
+boat4 = Boat.create!(title: "Lagoon", description:"
+  12 personnes· 6 cabines· 12 couchages· 2 salles de bain", photo_url:"https://u2n3p7k8.stackpathcdn.com/12038-54449-thickbox/fleshlight-girls-janice-griffith-eden.jpg", category:"homme", user_id: user3.id, price: 100)
 
 boat5 = Boat.create!(title: "Masturbateur Janice Griffith Vagin Eden", description:"Moulé Selon le Vagin de l'actrice Janice Griffit", photo_url:"https://images.unsplash.com/photo-1525607551316-4a8e16d1f9ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmVnZXRhYmxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", category:"à deux", user_id: user2.id, price: 50)
 
