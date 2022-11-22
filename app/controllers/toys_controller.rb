@@ -7,6 +7,9 @@ class ToysController < ApplicationController
     @toy = Toy.new
   end
 
+  def show
+    @toy = toy(toy_params)
+  end
   def create
     @toy = Toy.new(toy_params)
     @toy.save
