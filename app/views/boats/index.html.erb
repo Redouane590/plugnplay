@@ -1,17 +1,19 @@
 
 <div class="container mt-5">
-  <h1>Find all our boats here !</h1>
+  <h1>Tous les modèles disponibles :</h1>
 
   <div class="cards">
     <% @boats.each do |boat| %>
     <%= link_to boat_path(boat) do%>
       <div class="card-product">
-        <img src="<%=boat.photo_url%>" alt="">
-          <div class="card-infos">
-           <h3><%= boat.title %></h3>
-            <p><%= boat.price %></p>
+      <div class="card-img">
+          <img src="<%=boat.photo_url%>" alt="">
           </div>
-      </div>
+            <div class="card-infos">
+            <h3><%= boat.title %></h3>
+              <p><%= boat.price.to_i %> €/jour</p>
+            </div>
+        </div>
       <% end %>
     <% end %>
   </div>
