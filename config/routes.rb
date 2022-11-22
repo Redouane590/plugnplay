@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :boats do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:destroy]
+  resources :bookings, only: [:destroy, :show]
 
 
   patch "/bookings/:id/accepted", to: "bookings#accepted", as: :accepted
