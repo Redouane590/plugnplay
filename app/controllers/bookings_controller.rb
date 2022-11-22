@@ -1,15 +1,15 @@
 class BookingsController < ApplicationController
   def new
-    @boat = Boat.find(params[:boat_id])
+    @toy = Toy.find(params[:toy_id])
     @bookmark = Bookmark.new
   end
 
   def create
-    @boat = Boat.find(params[:boat_id])
+    @toy = Toy.find(params[:toy_id])
     @bookmark = Bookmark.new(bookmark_params)
-    @bookmark.boat = @boat
+    @bookmark.toy = @toy
     if @bookmark.save
-      redirect_to boat_path(@boat)
+      redirect_to toy_path(@toy)
     else
       render :new, status: :unprocessable_entity
     end
@@ -19,9 +19,14 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def update
+  def accept
     @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
+    @booking.status = "accepted"
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.status = "accepted"
   end
 
   def destroy
