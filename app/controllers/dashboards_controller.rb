@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
   def dashboard
     @user = User.find(params[:id])
-    @toys = current_user.toys
+    @boats = current_user.boats
   end
 end
