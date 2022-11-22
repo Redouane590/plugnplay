@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   resources :bookings, only: [:destroy, :show]
 
 
+  patch "/bookings/:id/accepted", to: "bookings#accepted", as: :accepted
+  patch "/bookings/:id/declined", to: "bookings#declined", as: :declined
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

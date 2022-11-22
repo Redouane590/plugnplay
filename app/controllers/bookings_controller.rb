@@ -24,9 +24,14 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def update
+  def accept
     @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
+    @booking.status = "accepted"
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.status = "accepted"
   end
 
   def destroy
