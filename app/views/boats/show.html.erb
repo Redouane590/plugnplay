@@ -9,7 +9,12 @@
           <p class="card-text"><%= @boat.description %></p>
           <p class="card-text"><%= @boat.address %></p>
           <p class="card-text"><%= @boat.price %></p>
+          <% if policy(@boat).edit? %>
+          <%= link_to "Modifier", edit_boat_path(@boat) %>
+          <%= link_to "Supprimer", boat_path(@boat), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?"} %>
+          <% else %>
           <a href="#" class="btn btn-primary">Louer</a>
+          <% end %>
         </div>
       </div>
     </div>

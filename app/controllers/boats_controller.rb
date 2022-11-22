@@ -1,10 +1,16 @@
 class BoatsController < ApplicationController
   def index
-    @boats = Boat.all
+    @boats = policy_scope(Boat)
+  end
+
+  def show
+    @boat = Boat.find(params[:id])
+    authorize @boat
   end
 
   def new
     @boat = Boat.new
+    authorize @boat
   end
 
   def create
@@ -15,10 +21,12 @@ class BoatsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    authorize @boat
   end
 
   def edit
     @boat = Boat.find(params[:id])
+    authorize @boat
   end
 
   def update
@@ -28,16 +36,14 @@ class BoatsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    authorize @boat
   end
 
   def destroy
     @boat = Boat.find(params[:id])
     @boat.destroy
-    redirect_to boats_path(@boat)
-  end
-
-  def show
-    @boat = Boat.find(params[:id])
+    redirect_to boats_path
+    authorize @boat
   end
 
   private
