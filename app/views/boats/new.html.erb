@@ -1,0 +1,22 @@
+<div class="container mb-5">
+<h1>Créer votre annonce</h1>
+  <%= simple_form_for @boat do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :title, :label => "Titre de l'annonce"  %>
+
+  <%= f.input :description, :label => "Description de l'annonce" %>
+
+  <%= f.input :photo_url, :label => "Photo de l'annonce" %>
+
+  <%= f.input :price, :label => "Prix de la location par jour" %>
+
+  <%= f.input :category, :label => "Categorie" %>
+  <%= f.input :category, collection: Boat::CATEGORY, :label => "Categorie" %>
+
+  <%= f.input :address, :label => "Localisation du bateau" %>
+
+  <%= f.button :submit, class: "btn-primary" %>
+  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+  <% end %>
+</div>
