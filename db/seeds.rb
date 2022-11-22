@@ -25,35 +25,30 @@ user3 = User.create!(email: "user3@gmail.com", password: "azerty2", nickname: "u
 
 # 2. CREER DES boatS (3 ou 4 boats par user)
 puts "seeding boats"
-boat1 = Boat.create!(title: "Vibromasseur ROMP Beat", description:"4 Modes de Vibration et 6 Vitesses.
-      Vibromasseur Bullet. Ultra-Silencieux.", photo_url:"https://u2n3p7k8.stackpathcdn.com/13734-126879-thickbox/romp-beat.jpg", category:"femme", user_id: user1.id, price: 19.99)
+boat1 = Boat.create!(title: "Beneteau", description:"Un beau et très rare bateau pour une croisière en mer Thyrréenne ou dans les îles Eoliennes ! Profitez du paysage paradisiaque sur notre bateau !
+        Avec ce 5 cabines vous pourrez parfaitement naviguer à 10 personnes, n'hésitez pas si vous avez besoin d'informations complémentaires.", photo_url:"https://www.clickandboat.com/location-bateau/tropea/voilier/beneteau-ms-20-xp9y7", category:"voilier", user_id: user1.id, price: 300 , address:"Tropea")
 
-boat2 = Boat.create!(title: "Boules de Geisha Luna Beads Noir", description:"Idéal pour les Exercices de Kegel!
-       Boules Amovibles.ABS et Silicone Médical.",
-      photo_url:"https://u2n3p7k8.stackpathcdn.com/1000-4389-thickbox/lelo-luna-beads-noir.jpg", category:"femme", user_id: user2.id, price: 30)
+boat2 = Boat.create!(title: "Bavaria", description:"Si vous êtes un groupe de jusqu'à 9 personnes, Bavaria 44 est un voilier parfait pour votre aventure de navigation geek.
+      Vous pouvez profiter d'une délicieuse salade grecque ou bronzer à bord de ce bateau incroyable.",
+      photo_url:"https://www.clickandboat.com/location-bateau/alimos/voilier/bavaria-44-xwvjw", category:"voilier", user_id: user2.id, price: 400 , address: "Alimos, Grèce")
 
-boat3 = Boat.create!(title: "Vibromasseur Tiger", description:"6 Modes de Vibration & 6 Vitesses.
-      Moteur Puissant & Silencieux.Stimulation Point G & Point P.", photo_url:"https://u2n3p7k8.stackpathcdn.com/3606-71933-thickbox/fun-factory-tiger.jpg", category:"femme", user_id: user3.id, price: 30)
+boat3 = Boat.create!(title: "Catana", description:"Belle, nouvelle Bali 4.3 vous attend à Split! Ce catamaran étonnant comporte 6 cabines au total (4 + 2), avec 12 couchettes (8 + 2 + 2).
+       De plus, il y a 4 toilettes et une cuisine moderne, entièrement équipée et moderne avec cuisinière à gaz, four, réfrigérateur, congélateur et couverts.", photo_url:"https://www.clickandboat.com/location-bateau/biograd-na-moru/catamaran/bali-catana-bali-4-3-gg9pg", category:"catamaran", user_id: user3.id, price:400 , address:"Marina Kornati, Biograd na Moru")
 
-boat4 = Boat.create!(title: "Masturbateur Connecté Satisfyer Men Vibration +", description:"Variété Infinie de Programmes !
-       Sensations Uniques!Contrôlable à Distance.", photo_url:"https://u2n3p7k8.stackpathcdn.com/12038-54449-thickbox/fleshlight-girls-janice-griffith-eden.jpg", category:"homme", user_id: user3.id, price: 100)
+boat4 = Boat.create!(title: "Lagoon", description:"12 personnes,6 cabines,12 couchages,2 salles de bain", photo_url:"https://www.clickandboat.com/location-bateau/croatie/catamaran/lagoon-42-k59zw6g", category:"catamaran", user_id: user3.id, price: 100 ,address:"Croatie, Croatie")
 
-boat5 = Boat.create!(title: "Masturbateur Janice Griffith Vagin Eden", description:"Moulé Selon le Vagin de l'actrice Janice Griffit", photo_url:"https://images.unsplash.com/photo-1525607551316-4a8e16d1f9ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmVnZXRhYmxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", category:"à deux", user_id: user2.id, price: 50)
+boat5 = Boat.create!(title: "Gulet", description:"À bord, vous avez la chance de découvrir la vraie beauté que les eaux égéennes ont à offrir. Imaginez-vous à bord d'une croisière le long des magnifiques côtes égéennes.", photo_url:"https://www.clickandboat.com/location-bateau/bodrum/go%C3%A9lette/gulet-tirhandil-q4k5842", category:"goélette", user_id: user2.id, price:500, address:"Gumbet, Bodrum")
 
-boat6 = Boat.create!(title: "Masturbateur Connecté Sam Neo", description:"5 Modes de Plaisir !
-      Succion & Vibration !Contrôle Longue Distance.", photo_url:"https://u2n3p7k8.stackpathcdn.com/18301-101595-thickbox/svakom-sam-neo.jpg", category:"homme", user_id: user3.id, price: 100)
+boat6 = Boat.create!(title: "Robert Clark", description:"Bienvenue à bord de notre magnifique yacht à voile ketch de 72 pieds. Cet incroyable navire a passé 5 ans en restauration, pour pouvoir accueillir et livrer un temps incroyable à bord.", photo_url:"https://www.clickandboat.com/location-bateau/sydney/go%C3%A9lette/robert-clark-72-bev25z", category:"goélette", user_id: user3.id, price: 600, address:"Sydney Harbour, Sydney")
 
-boat7 = Boat.create!(title: "Cockring Enduro Plus", description:"Érections Plus Dures, Plus Longtemps !
-      Ajustable, Résistant & Confortable.", photo_url:"https://u2n3p7k8.stackpathcdn.com/12380-128525-thickbox/nexus-enduro-plus.jpg", category:"homme", user_id: user3.id, price: 200)
+boat7 = Boat.create!(title: "Turkish Gulet", description:"La Barbarossa est une goélette turque bien entretenue de 23 m construite à Istanbul.", photo_url:"https://www.clickandboat.com/location-bateau/il-mellie%C4%A7a/go%C3%A9lette/turkish-gulet-motor-sailing-yacht-pb741", category:"goélette", user_id: user3.id, price: 200, adress:"Bali")
 
-boat8 = Boat.create!(title: "Stimulateur Connecté We-Vibe Chorus", description:"Encore Plus de Plaisir en Couple!Forme Ajustabl         Contrôlez Depuis l'Application.
-  ", photo_url:"https://u2n3p7k8.stackpathcdn.com/13576-75900-thickbox/we-vibe-chorus.jpg", category:"à deux", user_id: user3.id, price: 200)
+boat8 = Boat.create!(title: "Jeanneau", description:"L'ambiance est chaleureuse et raffinée, douce et accueillante. À l'intérieur, ils présentent des lignes épurées et un aménagement ouvert spacieux.",
+        photo_url:"https://u2n3p7k8.stackpathcdn.com/13576-75900-thickbox/we-vibe-chorus.jpg", category:"goélette", user_id: user3.id, price: 600 , address:"Tropea, Italie")
 
-boat9 = Boat.create!(title: "Stimulateur We-Vibe Unite", description:"N°1 du Couple!10 Modes de Vibration. Silicone Doux & Soyeux !
-  ", photo_url:"https://u2n3p7k8.stackpathcdn.com/7462-91603-thickbox/we-vibe-unite.jpg", category:"à deux", user_id: user3.id, price: 200)
+boat9 = Boat.create!(title: "Sun odyssey", description:"Il reflète l'harmonie à bord, et ce bien-être découle d'une ergonomie astucieuse, bénéficie d'un aménagement entièrement nouveau et innovant pour une plus grande aisance de déplacement sur le bateau.", photo_url:"https://www.clickandboat.com/location-bateau/rome/voilier/jeanneau-sun-odyssey-440-w74b5d", category:"voilier", user_id: user3.id, price: 700 address:"Marina di Nettuno, Rome")
 
-boat10= Boat.create!(title: "Stimulateur We-Vibe Unite", description:"N°1 du Couple!10 Modes de Vibration. Silicone Doux & Soyeux !
-  ", photo_url:"https://u2n3p7k8.stackpathcdn.com/7462-91603-thickbox/we-vibe-unite.jpg", category:"à deux", user_id: user3.id, price: 200)
+boat10= Boat.create!(title: "Fontaine Pajot", description:"8 personnes, 4 cabines, 8 couchages, 4 salles de bain", photo_url:"https://www.clickandboat.com/location-bateau/croatie/catamaran/fountaine-pajot-astrea-42-bk5bqew", category:"catamaran", user_id: user3.id, price: 200, address:"Croatie, Croatie")
 
 # 3. CREER DES BOOKINGS
 puts "all done"
