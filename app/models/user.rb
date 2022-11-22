@@ -7,5 +7,4 @@ class User < ApplicationRecord
   has_many :boats
   has_many :bookings
   has_many :bookings_as_owner, through: :boats, source: :bookings
-  validates :bio,  length: { maximum: 200 }
 end
