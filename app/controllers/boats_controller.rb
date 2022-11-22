@@ -23,13 +23,21 @@ class BoatsController < ApplicationController
 
   def update
     @boat = Boat.find(params[:id])
-    @boat.update(boat_params)
+    if @boat.update(boat_params)
+      redirect_to boat_path(@boat)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
     @boat = Boat.find(params[:id])
     @boat.destroy
     redirect_to boats_path(@boat)
+  end
+
+  def show
+    @boat = Boat.find(params[:id])
   end
 
   private

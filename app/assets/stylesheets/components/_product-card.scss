@@ -15,6 +15,7 @@
   border-top-right-radius: 4px;
 }
 
+
 .card-product:hover {
   background-color: #e1b99d;
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
@@ -23,6 +24,15 @@
 
 .card-product .card-infos {
   padding: 15px;
+  color: rgb(14, 14, 14);
+}
+
+a {
+  text-decoration: none;
+}
+
+.card-product h3 {
+  font-size: 20px;
 }
 
 .cards {
