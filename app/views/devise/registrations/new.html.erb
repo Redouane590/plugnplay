@@ -8,6 +8,8 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
+    <%= f.input :photo_url %>
+    <%= f.input :bio %>
     <%= f.input :nickname,
                 required: true,
                 autofocus: true,
@@ -22,7 +24,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Sign up", class: "btn-booker" %>
   </div>
 <% end %>
 
