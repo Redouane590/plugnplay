@@ -1,6 +1,10 @@
 <div class=" container d-flex justify-content-center">
     <div class="left-column col-8 mt-5 mb-5">
-          <img src="<%=@boat.photo_url%>" alt="" style= "width:100%">
+    <% if @boat.photo.attached? %>
+          <%= cl_image_tag @boat.photo.key, height: 600, width: 600, crop: :fill %>
+          <% else %>
+          <%= image_tag(@boat.photo_url, class: "boat-img") %>
+    <% end %>
             <div class="show-infos">
               <h5><%= @boat.title %></h5>
               <p><%= @boat.description %></p>
