@@ -8,11 +8,12 @@
               <p><%= @boat.price.to_i %> €/jour</p>
             </div>
             <% if policy(@boat).edit? %>
-            <%= link_to "Modifier", edit_boat_path(@boat) %>
-            <%= link_to "Supprimer", boat_path(@boat), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?"} %>
+            <%= link_to "Modifier", edit_boat_path(@boat), class: "btn-edit" %>
+            <%= link_to "Supprimer", boat_path(@boat), class: "btn-refuse", data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?"} %>
             <% end %>
 
     </div>
+    <% if !policy(@boat).edit? %>
       <div class="right-column col-4 mt-5 mb-5">
         <div class="bookform">
           <h2>Faire une demande de réservation :</h2>
@@ -26,4 +27,5 @@
           <% end %>
         </div>
       </div>
+      <% end %>
 </div>
