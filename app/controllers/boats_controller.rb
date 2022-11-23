@@ -7,6 +7,9 @@ class BoatsController < ApplicationController
     @booking = Booking.new
     @boat = Boat.find(params[:id])
     authorize @boat
+    @booked_dates = @boat.bookings.map do |booking|
+      { from: booking.start_date, to: booking.end_date }
+    end
   end
 
   def new
