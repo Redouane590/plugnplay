@@ -6,7 +6,9 @@
     <% @my_boats.each do |boat| %>
     <%= link_to boat_path(boat) do %>
       <div class="card-product">
+      <div class="card-img">
         <img src="<%=boat.photo_url%>" alt="">
+        </div>
           <div class="card-infos">
            <h3><%= boat.title %></h3>
             <p>
@@ -16,7 +18,6 @@
                 <%= booking.end_date %>
                 <%= User.find(booking.user_id).nickname %>
               <% end %>
-
             </p>
           </div>
       </div>
