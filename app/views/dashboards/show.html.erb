@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <h1>Tableau de bord</h1>
+  <h1>Mes bateaux</h1>
+
+  <div class="cards">
+    <% @my_boats.each do |boat| %>
+    <%= link_to boat_path(boat) do %>
+      <div class="card-product">
+      <div class="card-img">
+        <img src="<%=boat.photo_url%>" alt="">
+        </div>
+          <div class="card-infos">
+           <h3><%= boat.title %></h3>
+            <p>
+              <% boat.bookings.each do |booking| %>
+                <%= booking.status %>
+                <%= booking.start_date %>
+                <%= booking.end_date %>
+                <%= User.find(booking.user_id).nickname %>
+              <% end %>
+            </p>
+          </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

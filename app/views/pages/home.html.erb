@@ -12,7 +12,11 @@
       <%= link_to boat_path(boat) do%>
         <div class="card-product">
             <div class="card-img">
-              <img src="<%=boat.photo_url%>" alt="">
+            <% if boat.photo.attached? %>
+            <%= cl_image_tag boat.photo.key, height: 300, width: 400, crop: :fill %>
+            <% else %>
+            <%= image_tag(boat.photo_url, class: "boat-img") %>
+            <% end %>
             </div>
             <div class="card-infos">
               <h3><%= boat.title %></h3>
@@ -22,4 +26,5 @@
       <% end %>
       <% end %>
     </div>
+    <%= render "shared/faq" %>
 </div>

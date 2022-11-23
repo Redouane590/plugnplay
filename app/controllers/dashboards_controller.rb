@@ -1,6 +1,7 @@
 class DashboardsController < ApplicationController
-  def dashboard
-    @user = User.find(params[:id])
-    @boats = current_user.boats
+  def show
+    @my_boats = current_user.boats
+    @my_bookings = current_user.bookings
+    authorize current_user, policy_class: DashboardPolicy
   end
 end

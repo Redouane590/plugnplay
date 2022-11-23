@@ -1,26 +1,28 @@
-<div class="container">
-  <div class="row">
-    <div class="col-8">
-      <div class="card" style="width: 40vw);">
-        <img class="card-img-top" src="<%= @boat.photo_url %>"
-          alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title"><%= @boat.title %></h5>
-          <p class="card-text"><%= @boat.description %></p>
-          <p class="card-text"><%= @boat.address %></p>
-          <p class="card-text"><%= @boat.price %></p>
-          <% if policy(@boat).edit? %>
-          <%= link_to "Modifier", edit_boat_path(@boat) %>
-          <%= link_to "Supprimer", boat_path(@boat), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?"} %>
+<div class=" container d-flex justify-content-center">
+    <div class="left-column col-8 mt-5 mb-5">
+    <% if @boat.photo.attached? %>
+          <%= cl_image_tag @boat.photo.key, height: 600, width: 600, crop: :fill %>
           <% else %>
-          <a href="#" class="btn btn-primary">Louer</a>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <div class="col-4">
+          <%= image_tag(@boat.photo_url, class: "boat-img") %>
+    <% end %>
+            <div class="show-infos">
+              <h5><%= @boat.title %></h5>
+              <p><%= @boat.description %></p>
+              <p>Localisation : <%= @boat.address %></p>
+              <p><%= @boat.price.to_i %> €/jour</p>
+            </div>
+            <% if policy(@boat).edit? %>
+            <%= link_to "Modifier", edit_boat_path(@boat), class: "btn-edit" %>
+            <%= link_to "Supprimer", boat_path(@boat), class: "btn-refuse", data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?"} %>
+            <% end %>
 
-<%=  simple_form_for [@boat, @booking], html: { data: { controller: "flatpicker", flatpicker_dates_value: @booked_dates }} do |f| %>
+    </div>
+    <% if !policy(@boat).edit? %>
+      <div class="right-column col-4 mt-5 mb-5">
+        <div class="bookform">
+          <h2>Faire une demande de réservation :</h2>
+          <br>
+          <%=  simple_form_for [@boat, @booking], html: { data: { controller: "flatpicker", flatpicker_dates_value: @booked_dates }} do |f| %>
   <p>Prix de la location par jour: <span data-flatpicker-target="price"><%= @boat.price %> </span>$</p> <br>
   <label for="">Reservation</label>
   <input type="text" class="datepicker" data-action="input->flatpicker#fill_input" data-flatpicker-target="dates">
@@ -29,14 +31,7 @@
   <p class="d-none" data-flatpicker-target="text">Prix total de la location:<span data-flatpicker-target="totalprice"></span>$</p>
   <%= f.input :price, wrapper_html: { class: "d-none" }, input_html: {  data: { flatpicker_target: "bookprice" } } %>
 <%= f.button :submit, class: "btn-primary"  %>
-
-
-  <% end %>
-    </div>
-
-
-  </div>
-</div>
-
-</div>
+          <% end %>
+        </div>
+      </div>
 </div>
