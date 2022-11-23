@@ -31,7 +31,7 @@ class BookingsController < ApplicationController
 
   def decline
     @booking = Booking.find(params[:id])
-    @booking.status = "accepted"
+    @booking.status = "declined"
   end
 
   def destroy
