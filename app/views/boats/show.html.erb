@@ -1,37 +1,39 @@
 <div class=" container d-flex justify-content-center">
-    <div class="left-column col-8 mt-5 mb-5">
+  <div class="left-column col-8 mt-5 mb-5">
     <% if @boat.photo.attached? %>
-          <%= cl_image_tag @boat.photo.key, height: 600, width: 600, crop: :fill %>
-          <% else %>
-          <%= image_tag(@boat.photo_url, class: "boat-img") %>
+    <%= cl_image_tag @boat.photo.key, height: 600, width: 600, crop: :fill %>
+    <% else %>
+    <%= image_tag(@boat.photo_url, class: "boat-img") %>
     <% end %>
-            <div class="show-infos">
-              <h5><%= @boat.title %></h5>
-              <p><%= @boat.description %></p>
-              <p>Localisation : <%= @boat.address %></p>
-              <p><%= @boat.price.to_i %> €/jour</p>
-            </div>
-            <% if policy(@boat).edit? %>
-            <%= link_to "Modifier", edit_boat_path(@boat), class: "btn-edit" %>
-            <%= link_to "Supprimer", boat_path(@boat), class: "btn-refuse", data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?"} %>
-            <% end %>
-
+    <div class="show-infos">
+      <h5><%= @boat.title %></h5>
+      <p><%= @boat.description %></p>
+      <p>Localisation : <%= @boat.address %></p>
+      <p><%= @boat.price.to_i %> €/jour</p>
     </div>
-    <% if !policy(@boat).edit? %>
-      <div class="right-column col-4 mt-5 mb-5">
-        <div class="bookform">
-          <h2>Faire une demande de réservation :</h2>
-          <br>
-          <%=  simple_form_for [@boat, @booking], html: { data: { controller: "flatpicker", flatpicker_dates_value: @booked_dates }} do |f| %>
-  <p>Prix de la location par jour: <span data-flatpicker-target="price"><%= @boat.price %> </span>$</p> <br>
-  <label for="">Reservation</label>
-  <input type="text" class="datepicker" data-action="input->flatpicker#fill_input" data-flatpicker-target="dates">
-  <%= f.input :start_date, as: :string, wrapper_html: { class: "datepicker d-none" }, input_html: { data: {flatpicker_target: "start_date"}} %>
-  <%= f.input :end_date, as: :string, label: "fin de la reservation", wrapper_html: { class: "datepicker d-none" }, input_html: { data: {flatpicker_target: "end_date"}} %>
-  <p class="d-none" data-flatpicker-target="text">Prix total de la location:<span data-flatpicker-target="totalprice"></span>$</p>
-  <%= f.input :price, wrapper_html: { class: "d-none" }, input_html: {  data: { flatpicker_target: "bookprice" } } %>
-<%= f.button :submit, class: "btn-primary"  %>
-          <% end %>
-        </div>
-      </div>
+    <% if policy(@boat).edit? %>
+    <%= link_to "Modifier", edit_boat_path(@boat), class: "btn-edit" %>
+    <%= link_to "Supprimer", boat_path(@boat), class: "btn-refuse", data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?"} %>
+    <% end %>
+
+  </div>
+  <% if !policy(@boat).edit? %>
+  <div class="right-column col-4 mt-5 mb-5">
+    <div class="bookform">
+      <h2>Faire une demande de réservation :</h2>
+      <br>
+      <%=  simple_form_for [@boat, @booking], html: { data: { controller: "flatpicker", flatpicker_dates_value: @booked_dates }} do |f| %>
+      <p>Prix de la location par jour: <span data-flatpicker-target="price"><%= @boat.price %> </span>$</p> <br>
+      <label for="">Reservation</label>
+      <input type="text" class="datepicker" data-action="input->flatpicker#fill_input" data-flatpicker-target="dates">
+      <%= f.input :start_date, as: :string, wrapper_html: { class: "datepicker d-none" }, input_html: { data: {flatpicker_target: "start_date"}} %>
+      <%= f.input :end_date, as: :string, label: "fin de la reservation", wrapper_html: { class: "datepicker d-none" }, input_html: { data: {flatpicker_target: "end_date"}} %>
+      <p class="d-none" data-flatpicker-target="text">Prix total de la location:<span
+          data-flatpicker-target="totalprice"></span>$</p>
+      <%= f.input :price, wrapper_html: { class: "d-none" }, input_html: {  data: { flatpicker_target: "bookprice" } } %>
+      <%= f.button :submit, class: "btn-primary"  %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
 </div>
