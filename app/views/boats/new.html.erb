@@ -7,11 +7,11 @@
 
   <%= f.input :description, :label => "Description de l'annonce" %>
 
-  <%= f.input :photo, as: :file %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
 
   <%= f.input :price, :label => "Prix de la location par jour" %>
 
-  <%= f.input :category, collection: Boat::CATEGORY, :label => "Categorie" %>
+  <%= f.input :category, collection: Boat::CATEGORY, :label => "Catégorie" %>
 
   <%= f.input :address, :label => "Localisation du bateau" %>
 

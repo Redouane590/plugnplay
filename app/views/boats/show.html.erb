@@ -1,10 +1,45 @@
 <div class=" container d-flex justify-content-center">
   <div class="left-column col-8 mt-5 mb-5">
-    <% if @boat.photo.attached? %>
-    <%= cl_image_tag @boat.photo.key, height: 600, width: 600, crop: :fill %>
-    <% else %>
-    <%= image_tag(@boat.photo_url, class: "boat-img") %>
-    <% end %>
+
+
+      <% if @boat.photos.attached? %>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+              <%= cl_image_tag @boat.photos.first.key, height: 600, width: 600, crop: :fill %>
+                </div>
+                <div class="carousel-item">
+                <% @boat.photos.drop(1).each do |photo| %>
+                  <%= cl_image_tag photo.key, height: 600, width: 600, crop: :fill %>
+                  <% end %>
+                </div>
+              </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      <% else %>
+         <%= cl_image_tag("yxraqhqz1c1nr1wtrimd.jpg", width: 660, height: 660, crop: :fill) %>
+      <% end %>
+
+
+
+
+
+
+
+
+
     <div class="show-infos">
       <h5><%= @boat.title %></h5>
       <p><%= @boat.description %></p>
