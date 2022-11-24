@@ -1,6 +1,12 @@
 class BoatsController < ApplicationController
   def index
+
     @boats = policy_scope(Boat)
+    if params[:query].present?
+      @boats = Boat.search(params[:query])
+    else
+      @boats = Boat.all
+    end
     @markers = @boats.geocoded.map do |boat|
       {
         lat: boat.latitude,
@@ -8,6 +14,7 @@ class BoatsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { boat: boat })
 
       }
+
     end
   end
 
