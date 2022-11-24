@@ -36,7 +36,7 @@ class BoatsController < ApplicationController
     @boat = Boat.new(boat_params)
     @boat.user = current_user
     if @boat.save
-      redirect_to boats_path(@boat)
+      redirect_to boat_path(@boat)
     else
       render :new, status: :unprocessable_entity
     end

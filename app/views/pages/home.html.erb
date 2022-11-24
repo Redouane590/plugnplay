@@ -15,7 +15,7 @@
             <% if boat.photos.attached? %>
             <%= cl_image_tag boat.photos.first.key, height: 300, width: 400, crop: :fill %>
             <% else %>
-            <%= cl_image_tag("yxraqhqz1c1nr1wtrimd.jpg", width: 300, height: 400, crop: :fill) %>
+            <%= image_tag("default_boat", width: 300, height: 400, crop: :fill) %>
             <% end %>
             </div>
             <div class="card-infos">

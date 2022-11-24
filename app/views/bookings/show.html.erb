@@ -1,11 +1,20 @@
-<h1>Votre réservation</h1>
-<h2> <%= current_user.nickname %>, voici le récapitulatif de votre réservation</h2>
-<br>
-<p>Votre bateau : <%= @boat.title %> </p>
-<p>Date de début : <%= @booking.start_date %></p>
-<p>Date de fin : <%= @booking.end_date %></p>
-<p>Prix total de la location: <%= @booking.price %></p>
-<br>
-<p>Le propriétaire du bateau a 24h pour confirmer votre réservation. Au-delà de ce délai, considérez que votre demande est refusée.</p>
+<div class=" container d-flex justify-content-center">
+  <div class="booking-ok">
+    <h1>Votre réservation</h1>
+    <h2> <%= current_user.nickname %>, voici le récapitulatif de votre réservation</h2>
+    <br>
+    <p>Votre bateau : <%= @boat.title %> </p>
+    <p>Date de début : <%= @booking.start_date %></p>
+    <p>Date de fin : <%= @booking.end_date %></p>
+    <p>Prix total de la location: <%= @booking.price %></p>
+    <br>
+    <p>Le propriétaire du bateau a 24h pour confirmer votre réservation. Au-delà de ce délai, considérez que votre demande est refusée.</p>
+    <%= link_to "Retour à l'accueil", root_path, class: "btn-banner" %>
+  </div>
 
-<%= link_to "Retour à l'accueil", root_path %>
+  <div class="map" style="width: 50%; height: 400px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+</div>
