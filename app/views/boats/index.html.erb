@@ -1,7 +1,20 @@
 
 <div class="container mt-5">
   <h1>Tous les modèles disponibles :</h1>
-
+  <%= form_with url: boats_path, method: :get, class: "d-flex my-4 " do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Chercher un bateau"
+    %>
+    <%= submit_tag "Search", class: "btn btn-success" %>
+  <% end %>
+  <% if @boats.count == 0 %>
+    <div class="s"> <strong>Rien ne coressepond à votre recherche veuillez essayer autre chose...</strong> </div>
+    <div class="alert alert-danger" role="alert">
+      Rien ne coressepond à votre recherche veuillez essayer autre chose...
+    </div>
+   <% end %>
   <div class="cards">
     <% @boats.each do |boat| %>
     <%= link_to boat_path(boat) do%>
