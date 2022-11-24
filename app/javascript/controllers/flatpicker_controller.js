@@ -32,9 +32,13 @@ export default class extends Controller {
     let day2 = new Date(end);
     let difference = Math.abs(day2-day1);
     let bookedDays = difference/(1000 * 3600 * 24)
-    let price = this.totalpriceTarget.innerHTML = bookedDays * this.priceTarget.innerHTML
-    this.textTarget.classList.remove("d-none")
-    this.bookpriceTarget.value = price
+
+    if (splitDates.length === 2){
+
+      let price = this.totalpriceTarget.innerHTML = bookedDays * this.priceTarget.innerHTML
+      this.textTarget.classList.remove("d-none")
+      this.bookpriceTarget.value = price
+    }
   }
 
 

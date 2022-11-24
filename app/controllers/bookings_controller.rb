@@ -23,6 +23,11 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @boat = @booking.boat
+    @markers = [   {
+      lat: @boat.latitude,
+      lng: @boat.longitude,
+      info_window: render_to_string(partial: "boats/info_window", locals: { boat: @boat })
+    }]
   end
 
   def edit
