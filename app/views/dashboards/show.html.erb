@@ -1,32 +1,36 @@
-<div class="container mt-5">
+<div class="container">
   <h1>Tableau de bord</h1>
   <h1>Mes bateaux</h1>
 
-  <div class="cards">
-    <% @my_boats.each do |boat| %>
-    <%= link_to boat_path(boat) do %>
-      <div class="card-product scrollable">
-      <div class="card-img">
-          <% if boat.photo.attached? %>
-            <%= cl_image_tag boat.photo.key, height: 300, width: 400, crop: :fill %>
-            <% else %>
-            <%= image_tag(boat.photo_url, class: "boat-img") %>
-          <% end %>
-        </div>
-          <div class="card-infos">
-           <h3><%= boat.title %></h3>
-            <p>
-              <% boat.bookings.each do |booking| %>
-                <br><%= booking.pending? %>
-                <%= booking.start_date %>
-                <%= booking.end_date %>
-                <%= User.find(booking.user_id).nickname %>
-              <% end %>
-            </p>
-          </div>
-      </div>
+  <% @my_boats.each do |boat| %>
+    <div class="card-res" data-bs-toggle="collapse" href="#multiCollapseExample<%=boat.id%>" role="button" aria-expanded="false" aria-controls="multiCollapseExample<%=boat.id%>">
+      <% if boat.photo.attached? %>
+        <%= cl_image_tag boat.photo.key, height: 120, width: 120, crop: :fill %>
+      <% else %>
+        <%= image_tag(boat.photo_url, class: "boat-img") %>
       <% end %>
-    <% end %>
-  </div>
+      <div class="card-res-infos">
+        <h2><%= boat.title %></h2>
+        <p><%=boat.bookings.count %> réservations</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="collapse multi-collapse" id="multiCollapseExample<%=boat.id%>">
+          <div class="card card-body">
+              <% boat.bookings.each do |booking| %>
+                <%= User.find(booking.user_id).nickname %>
+                <p>Location prévue du <%= booking.start_date  %> au <%= booking.end_date %></p>
+                <% if booking.pending? %>
+                  <p><%= link_to "Accepter", accepted_path(booking), class: "btn-accept", data: {turbo_method: :patch} %> ou <%= link_to "Décliner", declined_path(booking), class: "btn-refuse", data: {turbo_method: :patch} %></p>
+                <% else %>
+                  <p><%= booking.status %></p>
+                <% end %>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
- <%= console   %>

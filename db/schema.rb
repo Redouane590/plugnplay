@@ -52,6 +52,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_112019) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "address"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_boats_on_user_id"
   end
 
