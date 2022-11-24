@@ -1,3 +1,11 @@
-<h2><%= link_to boat.title, boat_path(boat) %></h2>
-<p><%= boat.address %></p>
-<p><%= boat.price %>€/Jour</p>
+
+
+
+<div class="card" style="width: 100%;">
+  <img class="card-img-top" src="<%= boat.photo_url %>" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to boat.title, boat_path(boat) %></h5>
+    <p class="card-text">Localisation: <%= boat.address %></p>
+    <%= link_to "#{boat.price.to_i}€ par jour", boat_path(boat), class: "btn-edit"  %>
+  </div>
+</div>
