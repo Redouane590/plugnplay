@@ -12,10 +12,10 @@
       <%= link_to boat_path(boat) do%>
         <div class="card-product">
             <div class="card-img">
-            <% if boat.photo.attached? %>
-            <%= cl_image_tag boat.photo.key, height: 300, width: 400, crop: :fill %>
+            <% if boat.photos.attached? %>
+            <%= cl_image_tag boat.photos.first.key, height: 300, width: 400, crop: :fill %>
             <% else %>
-            <%= image_tag(boat.photo_url, class: "boat-img") %>
+            <%= cl_image_tag("yxraqhqz1c1nr1wtrimd.jpg", width: 300, height: 400, crop: :fill) %>
             <% end %>
             </div>
             <div class="card-infos">
