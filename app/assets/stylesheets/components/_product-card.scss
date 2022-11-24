@@ -50,3 +50,7 @@ a {
     grid-auto-rows: minmax(100px, auto);
     margin-bottom: 30px;
   }
+
+.scrollable {
+  overflow: auto;
+}
