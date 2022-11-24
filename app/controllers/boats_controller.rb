@@ -1,6 +1,21 @@
 class BoatsController < ApplicationController
   def index
+
     @boats = policy_scope(Boat)
+    if params[:query].present?
+      @boats = Boat.search(params[:query])
+    else
+      @boats = Boat.all
+    end
+    @markers = @boats.geocoded.map do |boat|
+      {
+        lat: boat.latitude,
+        lng: boat.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { boat: boat })
+
+      }
+
+    end
   end
 
   def show
@@ -21,7 +36,7 @@ class BoatsController < ApplicationController
     @boat = Boat.new(boat_params)
     @boat.user = current_user
     if @boat.save
-      redirect_to boats_path(@boat)
+      redirect_to boat_path(@boat)
     else
       render :new, status: :unprocessable_entity
     end
@@ -53,6 +68,6 @@ class BoatsController < ApplicationController
   private
 
   def boat_params
-    params.require(:boat).permit(:title, :description, :photo_url, :price, :category, :address, :photo)
+    params.require(:boat).permit(:title, :description, :photo_url, :price, :category, :address, photos: [])
   end
 end

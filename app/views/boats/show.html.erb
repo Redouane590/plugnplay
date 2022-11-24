@@ -1,10 +1,42 @@
 <div class=" container d-flex justify-content-center">
   <div class="left-column col-8 mt-5 mb-5">
-    <% if @boat.photo.attached? %>
-    <%= cl_image_tag @boat.photo.key, height: 600, width: 600, crop: :fill %>
-    <% else %>
-    <%= image_tag(@boat.photo_url, class: "boat-img") %>
-    <% end %>
+
+
+      <% if @boat.photos.attached? %>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+              <%= cl_image_tag @boat.photos.first.key, height: 600, width: 600, crop: :fill %>
+                </div>
+
+                <% @boat.photos.drop(1).each do |photo| %>
+                <div class="carousel-item">
+                  <%= cl_image_tag photo.key, height: 600, width: 600, crop: :fill %>
+                  </div>
+                  <% end %>
+
+              </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      <% else %>
+         <%= image_tag("default_boat" , width: 660, height: 660, crop: :fill) %>
+      <% end %>
+
+
+
+
+
+
+
+
+
     <div class="show-infos">
       <h5><%= @boat.title %></h5>
       <p><%= @boat.description %></p>
@@ -20,18 +52,22 @@
   <% if !policy(@boat).edit? %>
   <div class="right-column col-4 mt-5 mb-5">
     <div class="bookform">
-      <h2>Faire une demande de réservation :</h2>
+      <h2>FAIRE UNE DEMANDE DE RESERVATION:</h2>
       <br>
       <%=  simple_form_for [@boat, @booking], html: { data: { controller: "flatpicker", flatpicker_dates_value: @booked_dates }} do |f| %>
-      <p>Prix de la location par jour: <span data-flatpicker-target="price"><%= @boat.price %> </span>$</p> <br>
-      <label for="">Reservation</label>
-      <input type="text" class="datepicker" data-action="input->flatpicker#fill_input" data-flatpicker-target="dates">
-      <%= f.input :start_date, as: :string, wrapper_html: { class: "datepicker d-none" }, input_html: { data: {flatpicker_target: "start_date"}} %>
-      <%= f.input :end_date, as: :string, label: "fin de la reservation", wrapper_html: { class: "datepicker d-none" }, input_html: { data: {flatpicker_target: "end_date"}} %>
-      <p class="d-none" data-flatpicker-target="text">Prix total de la location:<span
-          data-flatpicker-target="totalprice"></span>$</p>
+      <h3>Prix de la location par jour:  <strong><span data-flatpicker-target="price"><%= @boat.price.to_i %> </span>€</strong></h3>
+      <br>
+      <br>
+      <input type="text" class="datepicker d-none" data-action="input->flatpicker#fill_input" data-flatpicker-target="dates">
+      <%= f.input :start_date, as: :string, wrapper_html: { class: " d-none" }, input_html: { data: {flatpicker_target: "start_date"}} %>
+      <%= f.input :end_date, as: :string, label: "fin de la reservation", wrapper_html: { class: " d-none" }, input_html: { data: {flatpicker_target: "end_date"}} %>
+      <br>
+      <h3 class="d-none" data-flatpicker-target="text">Prix total de la location:<span
+          data-flatpicker-target="totalprice"></span>€</h3>
       <%= f.input :price, wrapper_html: { class: "d-none" }, input_html: {  data: { flatpicker_target: "bookprice" } } %>
-      <%= f.button :submit, class: "btn-primary"  %>
+      <br>
+      <br>
+      <%= f.submit 'Envoyer ma demande', class: "btn-booker" %>
       <% end %>
     </div>
     <% end %>

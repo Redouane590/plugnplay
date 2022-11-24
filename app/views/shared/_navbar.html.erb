@@ -20,17 +20,17 @@
           <li class="nav-item active">
             <%= link_to "Tous les bateaux", "/boats", class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "FAQ", "#", class: "nav-link" %>
-          </li>
 
           <li class="nav-item dropdown">
-            <%= image_tag "#{current_user.photo_url}", class: "avatar dropdown-toggle ms-2", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, width: 40, height: 40, class: "avatar dropdown-toggle ms-2", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag("avatar", width: 40, height: 40, crop: :fill, id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+          <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Mon tableau de bord", dashboard_path, class: "dropdown-item" %>
               <%= link_to "Editer mon profil", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete},
-  class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
