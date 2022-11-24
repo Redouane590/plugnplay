@@ -60,9 +60,9 @@
       <%=  simple_form_for [@boat, @booking], html: { data: { controller: "flatpicker", flatpicker_dates_value: @booked_dates }} do |f| %>
       <p>Prix de la location par jour: <span data-flatpicker-target="price"><%= @boat.price %> </span>$</p> <br>
       <label for="">Reservation</label>
-      <input type="text" class="datepicker" data-action="input->flatpicker#fill_input" data-flatpicker-target="dates">
-      <%= f.input :start_date, as: :string, wrapper_html: { class: "datepicker d-none" }, input_html: { data: {flatpicker_target: "start_date"}} %>
-      <%= f.input :end_date, as: :string, label: "fin de la reservation", wrapper_html: { class: "datepicker d-none" }, input_html: { data: {flatpicker_target: "end_date"}} %>
+      <input type="text" class="datepicker d-none" data-action="input->flatpicker#fill_input" data-flatpicker-target="dates">
+      <%= f.input :start_date, as: :string, wrapper_html: { class: " d-none" }, input_html: { data: {flatpicker_target: "start_date"}} %>
+      <%= f.input :end_date, as: :string, label: "fin de la reservation", wrapper_html: { class: " d-none" }, input_html: { data: {flatpicker_target: "end_date"}} %>
       <p class="d-none" data-flatpicker-target="text">Prix total de la location:<span
           data-flatpicker-target="totalprice"></span>$</p>
       <%= f.input :price, wrapper_html: { class: "d-none" }, input_html: {  data: { flatpicker_target: "bookprice" } } %>

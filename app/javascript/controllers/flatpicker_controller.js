@@ -14,7 +14,8 @@ export default class extends Controller {
         minDate: "today",
         altFormat: "j/m/Y",
         dateFormat: "Y-m-d",
-        disable: this.datesValue
+        disable: this.datesValue,
+        inline: true
       }
     );
 
