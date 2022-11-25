@@ -19,3 +19,7 @@
 .nav-item {
   align-self: center;
 }
+
+.page-height {
+  min-height: calc(100vh - 150px);
+}
