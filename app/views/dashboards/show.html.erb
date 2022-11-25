@@ -1,13 +1,13 @@
 <div class="container">
   <h1>Tableau de bord</h1>
-  <h1>Mes bateaux</h1>
+  <h2>Mes bateaux</h2>
 
   <% @my_boats.each do |boat| %>
     <div class="card-res" data-bs-toggle="collapse" href="#multiCollapseExample<%=boat.id%>" role="button" aria-expanded="false" aria-controls="multiCollapseExample<%=boat.id%>">
       <% if boat.photos.attached? %>
         <%= cl_image_tag boat.photos.first.key, height: 120, width: 120, crop: :fill %>
       <% else %>
-        <%= image_tag(boat.photo_url, class: "boat-img") %>
+        <%= image_tag("default_boat.jpg", width: 300, height: 400, crop: :fill) %>
       <% end %>
       <div class="card-res-infos">
         <h2><%= boat.title %></h2>
@@ -20,13 +20,62 @@
         <div class="collapse multi-collapse" id="multiCollapseExample<%=boat.id%>">
           <div class="card card-body">
               <% boat.bookings.each do |booking| %>
-                <%= User.find(booking.user_id).nickname %>
-                <p>Location prévue du <%= booking.start_date  %> au <%= booking.end_date %></p>
+                <strong><%= User.find(booking.user_id).nickname %></strong>
+                <p>Location prévue du <strong><%= booking.start_date  %></strong> au <strong><%= booking.end_date %></strong></p>
                 <% if booking.pending? %>
                   <p><%= link_to "Accepter", accepted_path(booking), class: "btn-accept", data: {turbo_method: :patch} %> ou <%= link_to "Décliner", declined_path(booking), class: "btn-refuse", data: {turbo_method: :patch} %></p>
                 <% else %>
-                  <p><%= booking.status %></p>
+                  <% if booking.status == "accepted" %>
+                    <% statut = "Accepté" %>
+                    <% statut_class = "green" %>
+                  <% else %>
+                    <% statut = "Décliné" %>
+                    <% statut_class = "red" %>
+                  <% end %>
+                  <p class=<%= statut_class %>><%= statut  %></p>
                 <% end %>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<br>
+<br>
+<br>
+<br>
+
+    <h2>Mes réservations</h2>
+
+  <% @my_bookings.each do |booking| %>
+    <div class="card-res" data-bs-toggle="collapse" href="#multiCollapseExample<%=booking.id%>" role="button" aria-expanded="false" aria-controls="multiCollapseExample<%=booking.id%>">
+      <% if Boat.find(booking.boat_id).photos.attached? %>
+        <%= cl_image_tag Boat.find(booking.boat_id).photos.first.key, height: 120, width: 120, crop: :fill %>
+      <% else %>
+        <%= image_tag("default_boat.jpg", width: 300, height: 400, crop: :fill) %>
+      <% end %>
+      <div class="card-res-infos">
+        <h2><%= Boat.find(booking.boat_id).title %></h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="collapse multi-collapse" id="multiCollapseExample<%=booking.id%>">
+          <div class="card card-body">
+              <% @my_bookings.each do |booking| %>
+                <p>Location prévue du <strong><%= booking.start_date  %></strong> au <strong><%= booking.end_date %></strong></p>
+                  <% if booking.status == "accepted" %>
+                    <% statut = "Accepté" %>
+                    <% statut_class = "green" %>
+                  <% elsif booking.status == "declined" %>
+                    <% statut = "Décliné" %>
+                    <% statut_class = "red" %>
+                  <% else %>
+                    <% statut = "En attente" %>
+                    <% statut_class = "orange" %>
+                  <% end %>
+                  <p class=<%= statut_class %>><%= statut  %></p>
               <% end %>
           </div>
         </div>
