@@ -64,7 +64,7 @@
         <div class="collapse multi-collapse" id="multiCollapseExample<%=booking.id%>">
           <div class="card card-body">
               <% @my_bookings.each do |booking| %>
-                <p>Location prévue du <strong><%= booking.start_date  %></strong> au <strong><%= booking.end_date %></strong></p>
+                <p>Location prévue du <strong><%= booking.start_date.strftime("%d/%m/%Y")  %></strong> au <strong><%= booking.end_date.strftime("%d/%m/%Y") %></strong></p>
                   <% if booking.status == "accepted" %>
                     <% statut = "Accepté" %>
                     <% statut_class = "green" %>
