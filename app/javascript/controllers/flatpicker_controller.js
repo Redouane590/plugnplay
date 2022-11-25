@@ -13,7 +13,7 @@ export default class extends Controller {
         altInput: true,
         minDate: "today",
         altFormat: "j/m/Y",
-        dateFormat: "Y-m-d",
+        dateFormat: "j/m/y",
         disable: this.datesValue,
         inline: true
       }
