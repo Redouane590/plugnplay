@@ -1,7 +1,7 @@
 
 .navbar {
   justify-content: space-between;
-  background: rgb(255, 255, 255);
+  background: rgb(125, 237, 228);
   position: sticky;
   top: 0px;
   height: 60px;
@@ -18,4 +18,8 @@
 
 .nav-item {
   align-self: center;
+}
+
+.page-height {
+  min-height: calc(100vh - 150px);
 }

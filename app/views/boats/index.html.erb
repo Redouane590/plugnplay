@@ -5,15 +5,13 @@
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "Chercher un bateau"
+      placeholder: "Cherchez un bateau par ville, categorie ou par nom"
     %>
     <%= submit_tag "Search", class: "btn btn-success" %>
   <% end %>
   <% if @boats.count == 0 %>
-    <div class="s"> <strong>Rien ne coressepond à votre recherche veuillez essayer autre chose...</strong> </div>
-    <div class="alert alert-danger" role="alert">
-      Rien ne coressepond à votre recherche veuillez essayer autre chose...
-    </div>
+    <div class="s"> <strong>Rien ne coresspond à votre recherche veuillez essayer autre chose...</strong> </div>
+
    <% end %>
   <div class="cards">
     <% @boats.each do |boat| %>
@@ -28,6 +26,7 @@
           </div>
             <div class="card-infos">
             <h3><%= boat.title %></h3>
+            <p><i class="fa-solid fa-location-pin"></i> <%= boat.address %></p>
               <p><%= boat.price.to_i %> €/jour</p>
             </div>
         </div>

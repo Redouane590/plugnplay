@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to booking_path(@booking)
     else
+      flash[:notice] = "Merci de sélectionner les dates de votre séjour"
       render "/boats/show", status: :unprocessable_entity
     end
   end

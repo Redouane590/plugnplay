@@ -1,21 +1,20 @@
 .footer {
-  background: white;
+  background: rgb(51, 161, 189);
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
   padding: 0px 50px;
-  color: #83C5BE;
-  position: sticky;
-  bottom: 0;
+  color: #f0f0f0;
+
 }
 .footer-links {
   display: flex;
   align-items: center;
 }
 .footer-links a {
-  color: #83C5BE;
-  opacity: 0.45;
+  color: #f5f5f5;
+  opacity: 0.5;
   text-decoration: none;
   font-size: 16px;
   padding: 0px 10px;
@@ -25,4 +24,9 @@
 }
 .text-center {
   text-align: center;
+}
+
+.bg-test {
+  background-color: #ffffff;
+
 }
