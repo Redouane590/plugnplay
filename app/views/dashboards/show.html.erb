@@ -45,7 +45,7 @@
 <br>
 <br>
 
-    <h2>Mes réservations</h2>
+ <h2>Mes réservations</h2>
 
   <% @my_bookings.each do |booking| %>
     <div class="card-res" data-bs-toggle="collapse" href="#multiCollapseExample<%=booking.id%>" role="button" aria-expanded="false" aria-controls="multiCollapseExample<%=booking.id%>">
@@ -63,7 +63,6 @@
       <div class="col">
         <div class="collapse multi-collapse" id="multiCollapseExample<%=booking.id%>">
           <div class="card card-body">
-              <% @my_bookings.each do |booking| %>
                 <p>Location prévue du <strong><%= booking.start_date  %></strong> au <strong><%= booking.end_date %></strong></p>
                   <% if booking.status == "accepted" %>
                     <% statut = "Accepté" %>
@@ -76,7 +75,6 @@
                     <% statut_class = "orange" %>
                   <% end %>
                   <p class=<%= statut_class %>><%= statut  %></p>
-              <% end %>
           </div>
         </div>
       </div>
