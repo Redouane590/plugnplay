@@ -21,7 +21,7 @@
           <div class="card card-body">
               <% boat.bookings.each do |booking| %>
                 <strong><%= User.find(booking.user_id).nickname %></strong>
-                <p>Location prévue du <strong><%= booking.start_date  %></strong> au <strong><%= booking.end_date %></strong></p>
+                <p>Location prévue du <strong><%= booking.start_date.strftime("%d/%m/%y")  %></strong> au <strong><%= booking.end_date.strftime("%d/%m/%y") %></strong></p>
                 <% if booking.pending? %>
                   <p><%= link_to "Accepter", accepted_path(booking), class: "btn-accept", data: {turbo_method: :patch} %> ou <%= link_to "Décliner", declined_path(booking), class: "btn-refuse", data: {turbo_method: :patch} %></p>
                 <% else %>
