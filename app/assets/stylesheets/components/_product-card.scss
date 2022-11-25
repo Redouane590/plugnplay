@@ -1,8 +1,8 @@
 .card-product {
-  height: 360px;
   background-color: #EDF6F9;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   max-width: 300px;
+  height: 100%;
 }
 
 .card-img {
@@ -37,11 +37,6 @@ a {
 
 .card-product h3 {
   font-size: 24px;
-}
-
-.card-product {
-  height: 100%;
-  border-radius: 8px;
 }
 
 .card-product p {
