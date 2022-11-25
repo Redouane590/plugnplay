@@ -6,7 +6,7 @@
     <p>Votre bateau : <%= @boat.title %> </p>
     <p>Date de début : <%= @booking.start_date %></p>
     <p>Date de fin : <%= @booking.end_date %></p>
-    <p>Prix total de la location: <%= @booking.price %></p>
+    <p>Prix total de la location: <%= @booking.price.to_i %><i class="fa-sharp fa-solid fa-euro-sign"></i></p>
     <br>
     <p>Le propriétaire du bateau a 24h pour confirmer votre réservation. Au-delà de ce délai, considérez que votre demande est refusée.</p>
     <%= link_to "Retour à l'accueil", root_path, class: "btn-banner" %>
