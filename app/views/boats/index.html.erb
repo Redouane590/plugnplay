@@ -25,6 +25,7 @@
           <% end %>
           </div>
             <div class="card-infos">
+            <p>Annonce crée le <%= boat.created_at.strftime("%d/%m/%Y") %></p>
             <h3><%= boat.title %></h3>
             <p><i class="fa-solid fa-location-pin"></i> <%= boat.address %></p>
               <p><%= boat.price.to_i %> €/jour</p>
