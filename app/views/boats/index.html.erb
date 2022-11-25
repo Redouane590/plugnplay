@@ -5,12 +5,12 @@
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "Cherchez un bateau par ville, categorie ou par nom"
+      placeholder: "Cherchez un bateau par ville, catégorie ou nom"
     %>
     <%= submit_tag "Search", class: "btn btn-success" %>
   <% end %>
   <% if @boats.count == 0 %>
-    <div class="s"> <strong>Rien ne coresspond à votre recherche veuillez essayer autre chose...</strong> </div>
+    <div class="s"> <strong>Rien ne correspond à votre recherche, veuillez essayer autre chose...</strong> </div>
 
    <% end %>
   <div class="cards">
