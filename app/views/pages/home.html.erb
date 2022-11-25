@@ -1,11 +1,11 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1605387202149-47169c4ea58a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);">
   <div class="container">
-    <h1 class="">La solution idéale pour votre location de bateau</h1>
+    <h1 class="">La solution idéale pour votre location de bateau </h1>
    <%= link_to "Voir tous les modèles disponibles", boats_path, class: "btn-banner" %>
   </div>
 </div>
 <div class="container mt-5">
-  <h2>Les derniers ajouts</h2>
+  <h2 class="m-4"> Les derniers ajouts </h2>
 
     <div class="cards">
       <% @boats.each do |boat| %>
@@ -20,7 +20,7 @@
             </div>
             <div class="card-infos">
               <h3><%= boat.title %></h3>
-                <p><%= boat.price.to_i%> €/jour</p>
+                <p><%= boat.price.to_i%> € par jour</p>
             </div>
         </div>
       <% end %>
