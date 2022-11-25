@@ -13,7 +13,7 @@ export default class extends Controller {
         altInput: true,
         minDate: "today",
         altFormat: "j/m/Y",
-        dateFormat: "j/m/y",
+        dateFormat: "Y-m-d",
         disable: this.datesValue,
         inline: true
       }
@@ -28,14 +28,15 @@ export default class extends Controller {
     // console.log(splitDates);
     let start = this.start_dateTarget.value = splitDates[0];
     let end = this.end_dateTarget.value = splitDates[1];
-    let day1 = new Date(start);
-    let day2 = new Date(end);
+    let day1 = Date.parse(start);
+    let day2 = Date.parse(end);
     let difference = Math.abs(day2-day1);
     let bookedDays = difference/(1000 * 3600 * 24)
-
+console.log(day1)
     if (splitDates.length === 2){
-
+      // console.log(splitDates)
       let price = this.totalpriceTarget.innerHTML = bookedDays * this.priceTarget.innerHTML
+      // console.log(price, this.totalpriceTarget.innerHTML)
       this.textTarget.classList.remove("d-none")
       this.bookpriceTarget.value = price
     }
