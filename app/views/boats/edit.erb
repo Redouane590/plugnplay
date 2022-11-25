@@ -7,7 +7,7 @@
 
   <%= f.input :description, :label => "Description de l'annonce" %>
 
-  <%= f.input :photo, as: :file %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
 
   <%= f.input :price, :label => "Prix de la location par jour" %>
 
